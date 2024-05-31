@@ -1,10 +1,9 @@
 pymongo
 pymongo[srv]
 dnspython
-pandas 
+pandas
 numpy
 ensure
 pytest
 
--e.  # for the local package
-
+-e .
