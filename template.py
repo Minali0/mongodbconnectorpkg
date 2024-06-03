@@ -4,7 +4,7 @@ from pathlib import Path
 package_name = "mongodb_connect"
 
 list_of_files = [
-    ".github/workflows/ci.yaml",
+   ".github/workflows/ci.yaml",
    "src/__init__.py",
    f"src/{package_name}/__init__.py", 
    f"src/{package_name}/mongo_crud.py", 
@@ -20,7 +20,7 @@ list_of_files = [
    "setup.cfg",
    "pyproject.toml",
    "tox.ini",
-   "experiments/experiments.ipynb"
+   "experiments/experiments.ipynb", 
 ]
 
 for filepath in list_of_files:

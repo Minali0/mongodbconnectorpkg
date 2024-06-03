@@ -10,6 +10,7 @@ on:
     paths-ignore:
         - 'README.md'  
 
+
 permissions:
   contents: read
 
@@ -24,10 +25,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js 20 (optional)  # Comment out if not needed
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20-x'  # Ensures Node.js 20 for setup
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
