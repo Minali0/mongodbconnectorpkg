@@ -71,7 +71,7 @@ mongo = mongo_crud.mongodb_operation(client_url,database,collection_name)
 
 # CRUD Operation on MongoDB :-
 
-## STEPS :-
+## How to run :-
 
 ### 1. insert record 
 ```bash
