@@ -38,7 +38,7 @@ class mongodb_operation:
             collection = self.create_collection(collection_name)
             collection.insert_one(record)
         
-    def bulk_insert(self,datafile: str,collection_name: str=None):
+    def bulk_insert(self,datafile: str,collection_name: str=None,unique_field: str = None):
         self.path = datafile
 
         if self.path.endswith('.csv'):
@@ -49,5 +49,27 @@ class mongodb_operation:
 
         data_json = json.loads(data.to_json(orient = 'record'))
         collection = self.create_collection()
-        collection.insert_many(data_json)
+
+        if unique_field:
+            for record in data_json:
+                if collection.count_documents({unique_field: record[unique_field]}) == 0:
+                    collection.insert_one(record)
+                else:
+                    print(f"Record with {unique_field}={record[unique_field]} already exists. Skipping insertion.")
+        else:
+            collection.insert_many(data_json)
+        
+
+    def find(self, query: dict = {}, collection_name: str = None):
+        collection = self.create_collection(collection_name)
+        results = collection.find(query)
+        return list(results)
+
+    def update(self, query: dict, new_values: dict, collection_name: str = None):
+        collection = self.create_collection(collection_name)
+        collection.update_many(query, {"$set": new_values})
+
+    def delete(self, query: dict, collection_name: str = None):
+        collection = self.create_collection(collection_name)
+        collection.delete_many(query)
     

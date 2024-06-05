@@ -45,3 +45,60 @@ In summary, setup.cfg is used by setuptools to configure the packaging and insta
 1. pylint
 2. flake8(it is best because it containt 3 library pylint pycodestyle mccabe)
 3. pycodestyle
+
+
+# How to use the package :-
+
+### STEPS:-
+
+```bash
+pip install mongodb-crud-automation
+```
+
+```bash
+from mongo_connect import mongo_crud
+```
+
+```bash
+client_url = "<client_url_of_mongodb>"
+database = "<database name>"
+collection_name = "<collection_name>"
+```
+
+```bash
+mongo = mongo_crud.mongodb_operation(client_url,database,collection_name)
+```
+
+# CRUD Operation on MongoDB :-
+
+## STEPS :-
+
+### 1. insert record 
+```bash
+mongo.insert_record( record:dict, collection_name)
+```
+
+### 2. insert many record 
+```bash
+mongo.insert_record([record:dict], collection_name)
+```
+
+### 3. bulk insert record 
+- in this datafile is in .csv or .xlsx file 
+```bash
+mongo.bulk_insert ( datafile, collection_name: str = None, unique_field: str = None)
+```
+
+### 4. find query  
+```bash
+mongo.find(query: dict = {}, collection_name: str = None)
+```
+### 5. update query
+```bash
+mongo.update(query: dict, new_values: dict, collection_name: str = None)
+```
+
+### 6. delete query
+```bash
+mongo.delete(query: dict, collection_name: str = None)
+```
