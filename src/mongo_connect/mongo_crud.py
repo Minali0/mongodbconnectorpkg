@@ -7,30 +7,30 @@ import pandas as pd
 import json 
 
 class mongodb_operation:
-    @enusre annotations 
+    @ensure_annotations 
     def __init__(self,client_url: str,database_name: str,collection_name: str=None):
         self.client_url = client_url
         self.database_name = database_name
         self.collection_name = collection_name
         
-    @enusre annotations
+    @ensure_annotations 
     def create_client(self):
         client = MongoClient(self.client_url)
         return client 
         
-    @enusre annotations
+    @ensure_annotations 
     def create_database(self):
         client = self.create_client()
         database = client[self.database_name]
         return database
         
-    @enusre annotations
+    @ensure_annotations 
     def create_collection(self,collection= None):
         database = self.create_database()
         collection = database[collection]
         return collection
         
-    @enusre annotations
+    @ensure_annotations 
     def insert_record(self,record: dict,collection_name: str):
         if type(record)==list:
             for data in record:
@@ -43,7 +43,7 @@ class mongodb_operation:
             collection = self.create_collection(collection_name)
             collection.insert_one(record)
             
-    @enusre annotations 
+    @ensure_annotations 
     def bulk_insert(self,datafile: str,collection_name: str=None,unique_field: str = None):
         self.path = datafile
 
@@ -65,18 +65,18 @@ class mongodb_operation:
         else:
             collection.insert_many(data_json)
         
-    @enusre annotations
+    @ensure_annotations 
     def find(self, query: dict = {}, collection_name: str = None):
         collection = self.create_collection(collection_name)
         results = collection.find(query)
         return list(results)
         
-    @enusre annotations
+    @ensure_annotations 
     def update(self, query: dict, new_values: dict, collection_name: str = None):
         collection = self.create_collection(collection_name)
         collection.update_many(query, {"$set": new_values})
         
-    @enusre annotations
+    @ensure_annotations 
     def delete(self, query: dict, collection_name: str = None):
         collection = self.create_collection(collection_name)
         collection.delete_many(query)
