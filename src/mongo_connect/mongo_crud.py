@@ -39,7 +39,6 @@ class mongodb_operation:
         else:
             print("Failed to create MongoDB client. Database not initialized.")
             return None
-
         
     @ensure_annotations
     def create_collection(self,database_name:Optional[str] = None,collection_name:Optional[str]=None):
@@ -51,7 +50,6 @@ class mongodb_operation:
         else:
             print("Failed to initialize collection.")
             return None
-
 
     @ensure_annotations
     def insert_single_record(self, record: dict, database_name: Optional[str] = None, collection_name: Optional[str] = None):
