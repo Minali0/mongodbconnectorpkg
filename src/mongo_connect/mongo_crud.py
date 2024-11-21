@@ -22,7 +22,7 @@ class mongodb_operation:
             # Check if the client is connected by pinging the server
             self.client.admin.command('ping')
             print("Connected to MongoDB database")
-            return client
+            return self.client
         except ConnectionFailure as e:
             print(f"Error while connecting to MongoDB: {e}")
             self.client = None
