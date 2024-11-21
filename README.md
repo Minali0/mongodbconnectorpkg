@@ -111,7 +111,7 @@ mongo.insert_multiple_records(
     )
 ```
 
-### 3. bulk insert record 
+### 6. bulk insert record 
 - in this datafile is in .csv or .xlsx file 
 ```bash
 mongo.bulk_insert(
@@ -122,7 +122,7 @@ mongo.bulk_insert(
     )
 ```
 
-### 4. find query  
+### 7. find query  
 ```bash
 mongo.find(
     query: dict = {} , 
@@ -131,7 +131,7 @@ mongo.find(
     )
 ```
 
-### 5. update query
+### 8. update query
 ```bash
 mongo.update(
     query: dict = {}, 
@@ -141,7 +141,7 @@ mongo.update(
     )
 ```
 
-### 6. delete query
+### 9. delete query
 ```bash
 mongo.delete(
     query: dict = {},
