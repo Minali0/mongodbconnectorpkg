@@ -61,44 +61,91 @@ from mongo_connect import mongo_crud
 
 ```bash
 client_url = "<client_url_of_mongodb>"
-database = "<database name>"
+database_name = "<database name>"
 collection_name = "<collection_name>"
-```
+``` 
 
 ```bash
-mongo = mongo_crud.mongodb_operation(client_url,database,collection_name)
+mongo = mongo_crud.mongodb_operation(client_url)
 ```
 
 # CRUD Operation on MongoDB :-
 
 ## How to run :-
 
-### 1. insert record 
+### 1. connected to the mongodb client database 
 ```bash
-mongo.insert_record( record:dict, collection_name)
+mongo.create_client()
 ```
 
-### 2. insert many record 
+### 2. create database in mongodb database 
 ```bash
-mongo.insert_record([record:dict], collection_name)
+mongo.create_database(
+    database_name= '<database_name>'
+    )
+```
+
+### 3. create collection_name in mongodb database 
+```bash
+mongo.create_collection(
+    database_name= '<database_name>' ,
+    collection_name='<collection_name>'
+    )
+```
+
+### 4. insert single record 
+```bash
+mongo.insert_single_record( 
+    record:dict, 
+    database_name= '<database_name>' ,
+    collection_name='<collection_name>'
+    )
+```
+
+### 5. insert multiple records
+```bash
+mongo.insert_multiple_records(
+    [record:dict], 
+    database_name= '<database_name>' ,
+    collection_name='<collection_name>'
+    )
 ```
 
 ### 3. bulk insert record 
 - in this datafile is in .csv or .xlsx file 
 ```bash
-mongo.bulk_insert ( datafile, collection_name: str = None, unique_field: str = None)
+mongo.bulk_insert(
+    datafile="<file_path>" , 
+    database_name= '<database_name>' , 
+    collection_name='<collection_name>' ,
+    unique_field='<column_name>'
+    )
 ```
 
 ### 4. find query  
 ```bash
-mongo.find(query: dict = {}, collection_name: str = None)
+mongo.find(
+    query: dict = {} , 
+    database_name= '<database_name>' , 
+    collection_name='<collection_name>'
+    )
 ```
+
 ### 5. update query
 ```bash
-mongo.update(query: dict, new_values: dict, collection_name: str = None)
+mongo.update(
+    query: dict = {}, 
+    new_values: dict = {} , 
+    database_name= '<database_name>' , 
+    collection_name='<collection_name>'
+    )
 ```
 
 ### 6. delete query
 ```bash
-mongo.delete(query: dict, collection_name: str = None)
+mongo.delete(
+    query: dict = {},
+    database_name= '<database_name>' , 
+    collection_name='<collection_name>'
+    )
 ```

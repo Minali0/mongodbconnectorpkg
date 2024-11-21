@@ -6,7 +6,6 @@ pandas
 numpy
 ensure
 tox
-
 # dev requirements -
 
 pytest==7.1.3
