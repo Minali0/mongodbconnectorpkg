@@ -4,7 +4,7 @@ from typing import List
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-__version__ = "0.0.11"
+__version__ = "0.0.13"
 REPO_NAME = "mongodbconnectorpkg"
 PKG_NAME= "mongodb_crud_automation"
 AUTHOR_USER_NAME = "Minali0"
