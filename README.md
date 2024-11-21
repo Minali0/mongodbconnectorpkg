@@ -114,14 +114,13 @@ mongo.bulk_insert(datafile = "<file_path>",database_name= "<database_name>" ,
 collection_name="<collection_name>",unique_field="<column_name>")
 ```
 
-### 7. find query  
-
+### 4. find query  
 ```bash
 mongo.find(query: dict ={}, 
 database_name= "<database_name>" ,collection_name="<collection_name>")
 ```
 
-### 8. Update query
+### 5. update query
 ```bash
 mongo.update(query: dict = {} ,
 new_values: dict = {},database_name= "<database_name>" ,collection_name="<collection_name>")
