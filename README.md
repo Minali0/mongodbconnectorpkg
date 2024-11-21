@@ -74,78 +74,60 @@ mongo = mongo_crud.mongodb_operation(client_url)
 ## How to run :-
 
 ### 1. connected to the mongodb client database 
+
 ```bash
 mongo.create_client()
 ```
 
 ### 2. create database in mongodb database 
+
 ```bash
-mongo.create_database(
-    database_name= '<database_name>'
-    )
+mongo.create_database(database_name = "<database_name>")
 ```
 
-### 3. create collection_name in mongodb database 
+### 3. create collection_name in mongodb database
+
 ```bash
-mongo.create_collection(
-    database_name= '<database_name>' ,
-    collection_name='<collection_name>'
-    )
+mongo.create_collection(database_name= "<database_name>",
+collection_name="<collection_name>")
 ```
 
 ### 4. insert single record 
+
 ```bash
-mongo.insert_single_record( 
-    record:dict, 
-    database_name= '<database_name>' ,
-    collection_name='<collection_name>'
-    )
+mongo.insert_single_record(record:dict,database_name= "<database_name>",
+collection_name="<collection_name>")
 ```
 
 ### 5. insert multiple records
+
 ```bash
-mongo.insert_multiple_records(
-    [record:dict], 
-    database_name= '<database_name>' ,
-    collection_name='<collection_name>'
-    )
+mongo.insert_multiple_records([record:dict],database_name= "<database_name>" ,
+collection_name="<collection_name>")
 ```
 
 ### 6. bulk insert record 
 - in this datafile is in .csv or .xlsx file 
+
 ```bash
-mongo.bulk_insert(
-    datafile="<file_path>" , 
-    database_name= '<database_name>' , 
-    collection_name='<collection_name>' ,
-    unique_field='<column_name>'
-    )
+mongo.bulk_insert(datafile = "<file_path>",database_name= "<database_name>" ,
+collection_name="<collection_name>",unique_field="<column_name>")
 ```
 
 ### 7. find query  
+
 ```bash
-mongo.find(
-    query: dict = {} , 
-    database_name= '<database_name>' , 
-    collection_name='<collection_name>'
-    )
+mongo.find(query: dict ={}, 
+database_name= "<database_name>" ,collection_name="<collection_name>")
 ```
 
-### 8. update query
+### 8. Update query
 ```bash
-mongo.update(
-    query: dict = {}, 
-    new_values: dict = {} , 
-    database_name= '<database_name>' , 
-    collection_name='<collection_name>'
-    )
+mongo.update(query: dict = {} ,
+new_values: dict = {},database_name= "<database_name>" ,collection_name="<collection_name>")
 ```
 
 ### 9. delete query
 ```bash
-mongo.delete(
-    query: dict = {},
-    database_name= '<database_name>' , 
-    collection_name='<collection_name>'
-    )
+mongo.delete(query: dict = {} ,database_name= "<database_name>" ,   collection_name="<collection_name>")
 ```
